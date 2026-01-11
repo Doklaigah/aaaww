@@ -3,3 +3,7 @@ gcc client.c -o client
 
 chmod +x server client
 chmod +x server client
+
+./server
+cd ~/beacon_project
+./client
