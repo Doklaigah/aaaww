@@ -1,45 +1,6 @@
-gcc server.c -o server
-gcc client.c -o client
-./server
+gcc server_http.c -o server_http
+gcc client_http.c -o client_http
+
+./server_http
 # نافذة ثانية
-./client
-
-
-
-
-
-
-✅ الطريقة 2 (مضمونة 100%)
-
-نقتل العملية التي تستخدم المنفذ 4444.
-
-1️⃣ اعرف من يستخدم المنفذ
-sudo lsof -i :4444
-
-
-سيظهر شيء مثل:
-
-server   1234  ahmet_kali
-
-2️⃣ اقتل العملية
-
-استبدل 1234 بالرقم الذي يظهر عندك:
-
-sudo kill -9 1234
-
-3️⃣ شغّل السيرفر من جديد
-./server
-
-
-يجب أن يظهر:
-
-Server listening on port 4444...
-
-بعد ذلك
-
-افتح Terminal ثاني
-
-شغّل:
-
-./client
-
+./client_http
