@@ -1,1 +1,7 @@
+beacon_project/
+│
+├── server.c   ← السيرفر (يستقبل الـ beacon)
+├── client.c   ← الكلاينت (يرسل beacon دوري)
+└── README.md
+
 
