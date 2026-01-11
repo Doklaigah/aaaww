@@ -4,3 +4,15 @@ gcc client_http.c -o client_http
 ./server_http
 # نافذة ثانية
 ./client_http
+
+
+Wireshark (مهم)
+
+فلتر:
+
+http
+
+
+أو:
+
+tcp.port == 8080
