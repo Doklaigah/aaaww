@@ -1,38 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <arpa/inet.h>
+gcc server.c -o server
+gcc client.c -o client
 
-#define PORT 4444
-#define SERVER_IP "127.0.0.1"
-#define INTERVAL 5
-
-int main() {
-    int sock;
-    struct sockaddr_in server_addr;
-    char message[] = "Beacon: I am alive";
-
-    sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0) {
-        perror("socket");
-        exit(1);
-    }
-
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(PORT);
-    inet_pton(AF_INET, SERVER_IP, &server_addr.sin_addr);
-
-    if (connect(sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
-        perror("connect");
-        exit(1);
-    }
-
-    while (1) {
-        send(sock, message, strlen(message), 0);
-        sleep(INTERVAL);
-    }
-
-    close(sock);
-    return 0;
-}
+./server
+# نافذة ثانية
+./client
